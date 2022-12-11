@@ -1,10 +1,19 @@
 
 html{cursor: url("./tori.png") 30 30, pointer}
 
+body{
+background: url("https://img.freepik.com/free-vector/brown-soil-texture-background_1308-20483.jpg?w=1800&t=st=1670721512~exp=1670722112~hmac=98bdfff939bca4cdba472df27733c4b70a3b01827ea31737891f2abe330356d8");
+}
+
 .header{
   font-size: 40px;
   padding: 20px;
   margin: 0 auto;
+}
+
+.container {
+  width: 700px;
+  margin: 10px auto;
 }
 
 #start {
@@ -13,6 +22,9 @@ html{cursor: url("./tori.png") 30 30, pointer}
   border: 1px solid #ddd;
   font-size: 15px;
   margin-left: 20px;
+  cursor: pointer;
+  background-color: rgb(146, 107, 59);
+  color: #ddd;
 }
 .cell {
   display: inline-block; position: relative;
@@ -28,7 +40,7 @@ html{cursor: url("./tori.png") 30 30, pointer}
     background-size: 200px 200px;
   }
   .dead {
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt2T1F-Z3QXsF0zWT5VrndBZRC9bLZTnJtlw&usqp=CAU') center center no-repeat;
+    background: url('./dead.png') center center no-repeat;
     background-size: 200px 200px;
   }
   .bomb {
@@ -44,11 +56,11 @@ html{cursor: url("./tori.png") 30 30, pointer}
   }
   .hole {
     width: 200px; height: 150px; position: absolute; bottom: 0;
-    background: url('https://raw.githubusercontent.com/ZeroCho/es2021-webgame/master/mole-hole.png') center center no-repeat;
+    background: url("./hole.png") center center no-repeat;
     background-size: 200px 150px;
   }
   .hole-front {
     width: 200px; height: 30px; position: absolute; bottom: 0;
-    background: url('https://raw.githubusercontent.com/ZeroCho/es2021-webgame/master/mole-hole-front.png') center center no-repeat;
+    background: url("./hole.png") center center no-repeat;
     background-size: 200px 30px;
   }
