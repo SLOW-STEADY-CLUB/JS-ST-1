@@ -1,9 +1,13 @@
 body {
-    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
     width: 1920px;
     height:900px;
-    background-color:rgb(230, 230, 230);
+    background-color:rgb(249, 240, 211);
     text-align: center;
+    padding: 20px;
     
 }
 
