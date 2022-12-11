@@ -14,7 +14,7 @@ const gCounter = document.querySelector('.count');
 const showPopUp = document.querySelector('.popUpBox');
 const popBtn = document.querySelector('.popBtn');
 const popMsg = document.querySelector('.popMsg');
-const target = document.querySelector('.target')
+const playImg = gBtn.querySelector('.fa-play');
 let started = false;
 let count = 0;
 let timer = undefined;
@@ -22,6 +22,9 @@ let timer = undefined;
 
 gBtn.addEventListener('click', () => {
     if(started){
+        console.log('플레이')
+        playImg.classList.remove('fa-stop');
+        playImg.classList.add('fas-Play');
         stopGame();
     } else {
         startGame();
@@ -42,21 +45,19 @@ function startGame() {
     showStopBtn();
     showTimerBox();
     startTimer();
-
 }
+
 function stopGame() {
     started = false;
-        initCatching();
-
+    initCatching();
     stopTimer();
     showPopMsg('Replay??');
 }
 
 
 function showStopBtn() {
-    const playImg = gBtn.querySelector('.fa-play');
     playImg.classList.add('fa-stop');
-    // playImg.classList.remove('fa-play');
+    playImg.classList.remove('fa-play');
 
 }
 
@@ -70,7 +71,7 @@ function startTimer() {
     timer = setInterval(()=> {
         if(timing <= 0){
             clearInterval(timer);
-            // finishGame(false);
+            finishGame(false);
             stopGame()
             return;
         }
@@ -81,7 +82,6 @@ function startTimer() {
 function stopTimer() {
     clearInterval(timer);
     showPopUp.style.visibility = 'visible'
-
 }
 
 function updateTime(time) {
@@ -108,7 +108,6 @@ function hidePopUp() {
 function initCatching() {
     background.innerHTML = '';
     gCounter.innerText = bug_count;
-    // console.log(backgroundRect);
     addItem('vegetable', vegetable_count, 'img/vegetable.png');
     addItem('bug', bug_count, 'img/bug.png');
     
