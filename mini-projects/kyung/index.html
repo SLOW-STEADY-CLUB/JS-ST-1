@@ -8,12 +8,33 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="computer"></div>
-   <div>
-        <button id="가위" class="btn">가위</button>
-        <button id="바위" class="btn">바위</button>
-        <button id="보" class="btn">보</button>
-   </div>
-   <div id="result show"></div>
+    <div class="score">
+        <div id="computerScore">
+            computerScore
+        </div>
+        :
+        <div id="userScore">
+            userScore
+        </div>
+    </div>
+    <div id="computerSelectedImg">
+        <div id="c-s" class="com">가위img</div>
+        <div id="c-r" class="com">바위img</div>
+        <div id="c-p" class="com">보img</div>
+    </div>
+    <div id="userSelectedImg">
+            <div id="u-s" class="user">가위img</div>
+            <div id="u-r" class="user">바위img</div>
+            <div id="u-p" class="user">보img</div>
+    </div>
+
+    <div class="userBtnOption">
+        <div id="userChoice">
+            <button id="u-s-btn" class="btn">가위</button>
+            <button id="u-r-btn" class="btn">바위</button>
+            <button id="u-p-btn" class="btn">보</button>
+    </div>
+    </div>
+   <div id="result show" class="winner">Computer가 이겼습니다!</div>
 </body>
 </html>
