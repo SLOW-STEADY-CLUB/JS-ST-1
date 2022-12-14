@@ -38,6 +38,7 @@ li {
     border: none;
     padding: 1rem 2rem;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .game-text {
