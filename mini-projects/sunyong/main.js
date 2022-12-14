@@ -9,6 +9,16 @@ let tiles = [];
 
 // function
 
+function checkStatus() {
+    const currentList = [...containar.children]
+    const unMatchedList = currentList.filter((child, index) => Number(child.getAttribute("data-index")) !== index)
+    if(unMatchedList.length === 0) {
+        gameText.style.display = "block";
+        isPlaying = false;
+        clearInterval(timeInterval);
+    }
+}
+
 // 2초후 섞이게 하기
 function setGame() {
     isPlaying =true;
