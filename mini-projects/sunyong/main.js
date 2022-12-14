@@ -21,3 +21,14 @@ function createImageTiles() {
     })
     return tempArray;
 }
+
+// 섞는 함수
+function shuffle(array) {
+    let index = array.length - 1;
+    while(index > 0) {
+        const randomIndex = Math.floor(Math.random()*(index+1));
+        [array[index], array[randomIndex]] = [array[randomIndex], array[index]]
+        index--;
+    }
+    return array;
+}
