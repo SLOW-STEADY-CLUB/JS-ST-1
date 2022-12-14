@@ -9,6 +9,26 @@ let tiles = [];
 
 // function
 
+// 2초후 섞이게 하기
+function setGame() {
+    isPlaying =true;
+    time=0;
+    containar.innerHTML = "";  //containar 빈칸 만들기
+    gameText.style.display = "none";
+    clearInterval(timeInterval);
+
+    tiles = createImageTiles();
+    tiles.forEach(tile => containar.appendChild (tile))
+    setTimeout(()=> {
+        containar.innerHTML = "";  //containar 빈칸 만들기
+        shuffle(tiles).forEach(tile => containar.appendChild (tile))
+        timeInterval = setInterval(()=> {
+            playTime.innerText = time;
+            time++;
+        }, 1000) 
+    }, 2000)
+}
+
 //li 태그를 만들어서 반목문을 돌리고 containar에 추가하기
 function createImageTiles() {
     const tempArray = []
