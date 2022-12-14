@@ -1,0 +1,10 @@
+body{
+    background: url('/mini-projects/kyung/image/BgImg.png');
+    background-size: 1000px 1000px;
+}
+.computerScore {
+    display: flex;
+}
+.score {
+    display: flex;
+}
