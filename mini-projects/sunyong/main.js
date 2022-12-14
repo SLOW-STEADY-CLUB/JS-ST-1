@@ -6,9 +6,18 @@ const playTime = document.querySelector(".play-time")
 const tileCount = 16;
 
 let tiles = [];
+const dragged = {
+    el : null,
+    class : null,
+    index :null,
+}
+
+let isPlaying = false;
+let timeInterval = null;
+let time = 0;
+
 
 // function
-
 function checkStatus() {
     const currentList = [...containar.children]
     const unMatchedList = currentList.filter((child, index) => Number(child.getAttribute("data-index")) !== index)
@@ -62,3 +71,40 @@ function shuffle(array) {
     }
     return array;
 }
+
+
+// events
+containar.addEventListener('dragstart', (e)=> {
+    if(!isPlaying) return;
+    const obj = e.target
+    dragged.el = obj;
+    dragged.class = obj.className;
+    dragged.index = [...obj.parentNode.children].indexOf(e.target);
+})
+containar.addEventListener('dragover', (e)=> {
+    e.preventDefault();
+})
+containar.addEventListener('drop', (e)=> {
+    if(!isPlaying) return;
+    const obj = e.target;
+
+    if(obj.className !== dragged.class) {
+        let originPlace;
+        let isLast = false;
+    
+        if(dragged.el.nextSibling) {
+            originPlace = dragged.el.nextSibling
+        } else {
+            originPlace = dragged.el.previousSibling
+            isLast = true;
+        }
+        const droppedIndex = [...obj.parentNode.children].indexOf(obj);
+        dragged.index > droppedIndex ? obj.before(dragged.el) : obj.after(dragged.el)
+        isLast ? originPlace.after(obj) : originPlace.before(obj)
+    }
+    checkStatus();
+})
+
+startButton.addEventListener('click', () => {
+    setGame()
+})
