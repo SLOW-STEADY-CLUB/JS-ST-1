@@ -1,44 +1,73 @@
-//Computer & User 
-const comScissors = document.querySelector('#c-s');
-const comRock = document.querySelector('#c-r');
-const comPaper = document.querySelector('#c-p');
+//Computer options
+const computerOptions = ['comRock', 'comPaper', 'comScissors'];
 
-const userScissors = document.querySelector('#u-s');
-const userRock = document.querySelector('#u-r');
-const userPaper = document.querySelector('#u-p');
+// computerOptions.forEach(option => {
+//     option.addEventListener("click", function() {
+//         const computerRandom = Math.floor(Math.random() * 3);
+//         const computerChoice = computerOptions[computerRandom];
+//     })
+//     setTimeout(() => {
+//         compare(this.textContent, computerChoice);
+
+//         //update Image
+//         userHand = `/kyung/image/${this.textContent}.png`
+//         computerHand = `/kyung/${computerChoice}.png`
+//     }, 2000)
+// });
 
 //User Btn Option
 const userBtnBox = document.querySelector('.userBtnOption');
+const userImg = document.querySelector('.chosenImg');
 const rockBtn = document.querySelector('#u-r-btn');
 const scissorsBtn = document.querySelector('#u-s-btn');
 const paperBtn = document.querySelector('#u-p-btn');
 
-//select btn event listener
+// function createImg() {
+//     const item = document.createElement("div");
+//             item.setAttribute("class", "userImg_rock");
+//             console.log('1')
+//             return(item)
+// }
+// function onClick() {
+//     const item = createImg()
+//     userImg.append(item)
+// }
+// rockBtn.addEventListener("click", () => {
+//     console.log('2')
+//     onClick()
+// })
+
+const item = document.createElement("div");
+  item.setAttribute("class", "item");
+
 userBtnBox.addEventListener('click', (e) => {
-    computerSelectedImg.style.background = ''
-    computerSelectedText.style.background = ''
+    // computerSelectedImg.style.background = ''
+    // computerSelectedText.style.background = ''
    //만약 이벤트 발생시 rock/scissors/paper btn이 눌리면
-    if (e.target === rockBtn) {
-        rockBtn.classList.add('click')
-        scissorsBtn.classList.remove('click')
-        paperBtn.classList.remove('click')
-    } else if (e.target === scissorsBtn) {
-        rockBtn.classList.remove('click')
-        scissorsBtn.classList.add('click')
-        paperBtn.classList.remove('click')
-    } else if (e.target === paperBtn) {
-        rockBtn.classList.remove('click')
-        scissorsBtn.classList.remove('click')
-        paperBtn.classList.add('click')
+   console.log(e.target.id)
+   const userImg = document.querySelector('.userImg')
+    if (e.target.id === 'u-r-btn') {
+        userImg.classList.add('rock')
+        userImg.classList.remove('userImg')
+       getRandomComputerImg();
+    } else if (e.target.id === 'u-s-btn') {
+        userImg.classList.add('scissors')
+        userImg.classList.remove('userImg')
+        getRandomComputerImg();
+    } else if (e.target.id === 'u-p-btn') {
+        userImg.classList.add('paper')
+        userImg.classList.remove('userImg')
+        getRandomComputerImg();
     } else {
         return false;
+       
     }
     selectImg() // - user
-    setTimeout(() => {
-        getRandomComputerImg()
-        updateScore()
-        //updateLocalStorage() - 추가
-    }, 200) // 0.2초 
+    // setTimeout(() => {
+    //     getRandomComputerImg()
+    //     // updateScore()
+    //     //updateLocalStorage() - 추가
+    // }, 200) // 0.2초 
 })
 
 //경우 - User Choice
@@ -46,7 +75,6 @@ const chooseRock = document.querySelector('#chooseRock');
 const chooseScissors = document.querySelector('#chooseScissors');
 const choosePaper = document.querySelector('#choosePaper');
 
-const computerOptions = ['comRock', 'comPaper', 'comScissors'];
 const defaultValue = document.querySelector('#defaultValue');
 
 //Selected Img
@@ -65,24 +93,12 @@ let computerChoice = 0; //컴퓨터 결과
 let userChoice = 0;
 let start = false;
 
-// Score
-let computerScore = () => {
-    
-}
-let userScore = () => {
-
-}
-
-// Win Result
-let winResult = () => {
-
-}
-
+// 이미지 
 //get random computer Img
 const getRandomComputerImg = () => {
+    const comImg = document.querySelector('.comImg')
     const randomNum = Math.floor(Math.random() * 3)
-    computerSelectedImg.style.background = bgImg[randomNum]
-    computerSelectedText.innerText = selectedText[randomNum]
+    comImg.style.background = bgImg[randomNum]
 }
 
 //selecting Img - User
@@ -101,11 +117,13 @@ const selectImg = () => {
     }
 }
 
-
-const updateScore = () => {
-    const computerScore = document.querySelector('#computerScore');
-    const userScore = document.querySelector('#userScore');
-}
+// 스코어 비교
+// const updateScore = () => {
+//     const computerScore = document.querySelector('#computerScore');
+//     const userScore = document.querySelector('#userScore');
+//     userScore.textContent = uScore;
+//     computerScore.textContent = cScore
+// }
 
 const compare = (computerChoice, userChoice) => {
     const winner = document.querySelector('.winner');
@@ -117,13 +135,13 @@ const compare = (computerChoice, userChoice) => {
     //사용자가 주먹을 낼 경우
     if (userChoice == 'rock') {
         if (computerChoice == 'scissors') {
-            winner.textContent = "이겼습니다!"
-            userScore++;
+            winner.textContent = "사용자가 이겼습니다!"
+            uScore++;
             updateScore();
             return;
         } else {
-            winner.textContent = "졌습니다!"
-            computerScore++;
+            winner.textContent = "사용자가 졌습니다!"
+            cScore++;
             updateScore();
             return;
         }
@@ -131,13 +149,13 @@ const compare = (computerChoice, userChoice) => {
     //사용자가 가위를 낼 경우 
     if (userChoice == 'scissors') {
         if (computerChoice == 'paper') {
-            winner.textContent = "이겼습니다!"
-            userScore++;
+            winner.textContent = "컴퓨터가 이겼습니다!"
+            uScore++;
             updateScore();
             return;
         } else {
-            winner.textContent = "졌습니다!"
-            computerScore++;
+            winner.textContent = "컴퓨터가 졌습니다!"
+            cScore++;
             updateScore();
             return;
         }

@@ -1,10 +1,84 @@
 body{
-    background: url('/mini-projects/kyung/image/BgImg.png');
+    background: url('/kyung/image/BgImg.png');
     background-size: 1000px 1000px;
-}
-.computerScore {
-    display: flex;
 }
 .score {
     display: flex;
+    background-color: #60a9c6;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 50px;
+}
+#computerScore {
+    margin-right: 10px;
+}
+#userScore {
+    margin-left: 10px;
+}
+#computerScore {
+    display: inline;
+}
+.area {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.comImg {
+    width: 400px; height: 400px;
+    
+}
+
+.line {
+    border-left: thick solid #60a9c6;
+    height: 600px;
+}
+
+.userImg {
+    width: 400px; height: 400px; 
+    /* background: url('image/RockImg.png') center center no-repeat; */
+
+}
+.rock {
+    width: 400px; height: 400px; 
+    background: url('image/RockImg.png') center center no-repeat;
+}
+.paper {
+    width: 400px; height: 400px; 
+    background: url('image/PaperImg.png') center center no-repeat;
+}
+.scissors {
+    width: 400px; height: 400px; 
+    background: url('image/ScissorsImg.png') center center no-repeat;
+}
+
+.userBtnOption {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    /* width: 200px; */
+}
+#u-r-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.btn {
+    border: 2px solid #60a9c6;
+    border-radius: 8px;
+    padding: 10px;
+}
+.userBtnOption button:hover {
+    background-color: #60a9c6;
+}
+
+.winner {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
 }
