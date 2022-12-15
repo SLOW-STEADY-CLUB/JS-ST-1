@@ -1,11 +1,19 @@
-//Computer & User 
-const comScissors = document.querySelector('#c-s');
-const comRock = document.querySelector('#c-r');
-const comPaper = document.querySelector('#c-p');
+//Computer options
+const computerOptions = ['comRock', 'comPaper', 'comScissors'];
 
-const userScissors = document.querySelector('#u-s');
-const userRock = document.querySelector('#u-r');
-const userPaper = document.querySelector('#u-p');
+options.array.forEach(option => {
+    option.addEventListener("click", function() {
+        const computerRandom = Math.floor(Math.random() * 3);
+        const computerChoice = computerOptions[computerRandom];
+    })
+    setTimeout(() => {
+        compare(this.textContent, computerChoice);
+
+        //update Image
+        userHand = `/kyung/image/${this.textContent}.png`
+        computerHand = `/kyung/${computerChoice}.png`
+    }, 2000)
+});
 
 //User Btn Option
 const userBtnBox = document.querySelector('.userBtnOption');
@@ -46,7 +54,6 @@ const chooseRock = document.querySelector('#chooseRock');
 const chooseScissors = document.querySelector('#chooseScissors');
 const choosePaper = document.querySelector('#choosePaper');
 
-const computerOptions = ['comRock', 'comPaper', 'comScissors'];
 const defaultValue = document.querySelector('#defaultValue');
 
 //Selected Img
@@ -64,19 +71,6 @@ const selectedText = ["Rock", "Scissors", "Paper"]
 let computerChoice = 0; //컴퓨터 결과
 let userChoice = 0;
 let start = false;
-
-// Score
-let computerScore = () => {
-    
-}
-let userScore = () => {
-
-}
-
-// Win Result
-let winResult = () => {
-
-}
 
 //get random computer Img
 const getRandomComputerImg = () => {
@@ -101,10 +95,12 @@ const selectImg = () => {
     }
 }
 
-
+// 스코어 비교
 const updateScore = () => {
     const computerScore = document.querySelector('#computerScore');
     const userScore = document.querySelector('#userScore');
+    userScore.textContent = uScore;
+    computerScore.textContent = cScore
 }
 
 const compare = (computerChoice, userChoice) => {
@@ -118,12 +114,12 @@ const compare = (computerChoice, userChoice) => {
     if (userChoice == 'rock') {
         if (computerChoice == 'scissors') {
             winner.textContent = "이겼습니다!"
-            userScore++;
+            uScore++;
             updateScore();
             return;
         } else {
             winner.textContent = "졌습니다!"
-            computerScore++;
+            cScore++;
             updateScore();
             return;
         }
@@ -132,12 +128,12 @@ const compare = (computerChoice, userChoice) => {
     if (userChoice == 'scissors') {
         if (computerChoice == 'paper') {
             winner.textContent = "이겼습니다!"
-            userScore++;
+            uScore++;
             updateScore();
             return;
         } else {
             winner.textContent = "졌습니다!"
-            computerScore++;
+            cScore++;
             updateScore();
             return;
         }
