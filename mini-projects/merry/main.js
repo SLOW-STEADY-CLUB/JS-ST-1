@@ -75,6 +75,7 @@ cells.forEach((cell, index) => {
       event.target.classList.remove("dead");
     }, 1000);
   });
+
   cell.querySelector(".bomb").addEventListener("click", (event) => {
     score -= 20;
     scores.textContent = score;
