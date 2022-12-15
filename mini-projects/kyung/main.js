@@ -72,6 +72,8 @@ let computerChoice = 0; //컴퓨터 결과
 let userChoice = 0;
 let start = false;
 
+// 이미지 
+document.querySelector('.comImg').classList.add('bg0' + randomNum);
 //get random computer Img
 const getRandomComputerImg = () => {
     const randomNum = Math.floor(Math.random() * 3)
@@ -113,12 +115,12 @@ const compare = (computerChoice, userChoice) => {
     //사용자가 주먹을 낼 경우
     if (userChoice == 'rock') {
         if (computerChoice == 'scissors') {
-            winner.textContent = "이겼습니다!"
+            winner.textContent = "사용자가 이겼습니다!"
             uScore++;
             updateScore();
             return;
         } else {
-            winner.textContent = "졌습니다!"
+            winner.textContent = "사용자가 졌습니다!"
             cScore++;
             updateScore();
             return;
@@ -127,12 +129,12 @@ const compare = (computerChoice, userChoice) => {
     //사용자가 가위를 낼 경우 
     if (userChoice == 'scissors') {
         if (computerChoice == 'paper') {
-            winner.textContent = "이겼습니다!"
+            winner.textContent = "컴퓨터가 이겼습니다!"
             uScore++;
             updateScore();
             return;
         } else {
-            winner.textContent = "졌습니다!"
+            winner.textContent = "컴퓨터가 졌습니다!"
             cScore++;
             updateScore();
             return;
