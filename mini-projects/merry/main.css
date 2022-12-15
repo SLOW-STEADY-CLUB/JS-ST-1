@@ -27,7 +27,7 @@ background: url("https://img.freepik.com/free-vector/brown-soil-texture-backgrou
   color: #ddd;
 }
 .cell {
-  display: inline-block; position: relative;
+    display: inline-block; position: relative;
     width: 200px; height: 200px;
     background: 'yellow'; overflow: hidden;
   }
@@ -64,3 +64,4 @@ background: url("https://img.freepik.com/free-vector/brown-soil-texture-backgrou
     background: url("./hole.png") center center no-repeat;
     background-size: 200px 30px;
   }
+  
