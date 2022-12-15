@@ -31,40 +31,49 @@ body{
     width: 400px; height: 400px;
     
 }
-.comImg.bg01 { background-image: url('image/PaperImg.png'); }
-.comImg.bg02 { background-image: url('image/RockImg.png'); }
-.comImg.bg03 { background-image: url('image/ScissorsImg.png'); }
 
 .line {
     border-left: thick solid #60a9c6;
     height: 600px;
 }
+
 .userImg {
-    width: 400px; height: 400px;
+    width: 400px; height: 400px; 
+    /* background: url('image/RockImg.png') center center no-repeat; */
+
+}
+.rock {
+    width: 400px; height: 400px; 
+    background: url('image/RockImg.png') center center no-repeat;
+}
+.paper {
+    width: 400px; height: 400px; 
+    background: url('image/PaperImg.png') center center no-repeat;
+}
+.scissors {
+    width: 400px; height: 400px; 
+    background: url('image/ScissorsImg.png') center center no-repeat;
 }
 
 .userBtnOption {
+    display: flex;
     margin-top: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    /* width: 200px; */
+}
+#u-r-btn {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .btn {
     border: 2px solid #60a9c6;
     border-radius: 8px;
     padding: 10px;
-    
-    /* transition: 0.3s; */
-    
 }
 .userBtnOption button:hover {
     background-color: #60a9c6;
-
-/*     
-      background: transparent;
-      box-shadow: inset 0 0 0 36px var(--btn-bg); */
-    
-    
 }
 
 .winner {
