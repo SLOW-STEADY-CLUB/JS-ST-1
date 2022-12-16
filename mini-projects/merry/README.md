@@ -6,8 +6,8 @@ https://user-images.githubusercontent.com/109053875/206882313-1dbcad4d-80d1-447a
 
 # 프로젝트 주요 경험
 
-## 부동소수점 문제를 해결하기 위해 정수로 만들어 시간 계산하기
+### 부동소수점 문제를 해결하기 위해 정수로 만들어 시간 계산하기
 
 `time = (time * 10 - 1) / 10;`
 
-## Math.random()을 사용한 랜덤값 추출
+### Math.random()을 사용한 랜덤값 추출
