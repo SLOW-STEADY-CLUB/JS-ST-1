@@ -2,7 +2,7 @@ const timer = document.querySelector("#timer");
 const scores = document.querySelector("#score");
 const game = document.querySelector("#game");
 const start = document.querySelector("#start");
-const cells = document.querySelectorAll(".cell");
+//const cells = document.querySelectorAll(".cell");
 
 const holes = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let started = false;
