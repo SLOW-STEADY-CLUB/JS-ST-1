@@ -62,9 +62,8 @@ function tick() {
     }
   });
 }
-
-cells.forEach((cell, index) => {
-  cell.querySelector(".gopher").addEventListener("click", (event) => {
+game.addEventListener("click", (event) => {
+  if (event.target.classList[0] === "gopher") {
     score += 10;
     scores.textContent = score;
     event.target.classList.add("dead");
@@ -74,9 +73,8 @@ cells.forEach((cell, index) => {
       holes[index] = 0;
       event.target.classList.remove("dead");
     }, 1000);
-  });
-
-  cell.querySelector(".bomb").addEventListener("click", (event) => {
+  }
+  if (event.target.classList[0] === "bomb") {
     score -= 20;
     scores.textContent = score;
     event.target.classList.add("boom");
@@ -86,5 +84,31 @@ cells.forEach((cell, index) => {
       holes[index] = 0;
       event.target.classList.remove("boom");
     }, 1000);
-  });
+  }
 });
+
+// cells.forEach((cell, index) => {
+//   // cell.querySelector(".gopher").addEventListener("click", (event) => {
+//   //   score += 10;
+//   //   scores.textContent = score;
+//   //   event.target.classList.add("dead");
+//   //   event.target.classList.add("hidden");
+//   //   clearTimeout(holes[index]);
+//   //   setTimeout(() => {
+//   //     holes[index] = 0;
+//   //     event.target.classList.remove("dead");
+//   //   }, 1000);
+//   // });
+
+//   cell.querySelector(".bomb").addEventListener("click", (event) => {
+//     score -= 20;
+//     scores.textContent = score;
+//     event.target.classList.add("boom");
+//     event.target.classList.add("hidden");
+//     clearTimeout(holes[index]);
+//     setTimeout(() => {
+//       holes[index] = 0;
+//       event.target.classList.remove("boom");
+//     }, 1000);
+//   });
+// });
