@@ -47,9 +47,6 @@ function tick() {
     const randomValue = Math.random();
     if (Math.random() < gopherPercent) {
       const gopher = cells[index].querySelector(".gopher");
-      if (gopher.classList[1] === "dead") {
-        gopher.classList.remove("dead");
-      }
       holes[index] = setTimeout(() => {
         gopher.classList.add("hidden");
         holes[index] = 0;
@@ -65,16 +62,14 @@ function tick() {
     }
   });
 }
+
 game.addEventListener("click", (event) => {
-  console.log(event.target.classList);
   if (event.target.classList[0] === "gopher") {
     score += 10;
     scores.textContent = score;
     event.target.classList.add("dead");
     event.target.classList.add("hidden");
-    //clearTimeout(holes[index]);
     setTimeout(() => {
-      //holes[index] = 0;
       event.target.classList.remove("dead");
     }, 1000);
   }
@@ -83,26 +78,25 @@ game.addEventListener("click", (event) => {
     scores.textContent = score;
     event.target.classList.add("boom");
     event.target.classList.add("hidden");
-    //clearTimeout(holes[index]);
     setTimeout(() => {
-      //holes[index] = 0;
       event.target.classList.remove("boom");
     }, 1000);
   }
 });
 
+// 전체를 받아서 forEach문을 돌렸던 기존의 방식 -> 부모 태그에 eventListener을 달아서 event target으로 구별하는 방식으로 변경
 // cells.forEach((cell, index) => {
-//   // cell.querySelector(".gopher").addEventListener("click", (event) => {
-//   //   score += 10;
-//   //   scores.textContent = score;
-//   //   event.target.classList.add("dead");
-//   //   event.target.classList.add("hidden");
-//   //   clearTimeout(holes[index]);
-//   //   setTimeout(() => {
-//   //     holes[index] = 0;
-//   //     event.target.classList.remove("dead");
-//   //   }, 1000);
-//   // });
+// cell.querySelector(".gopher").addEventListener("click", (event) => {
+//   score += 10;
+//   scores.textContent = score;
+//   event.target.classList.add("dead");
+//   event.target.classList.add("hidden");
+//   clearTimeout(holes[index]);
+//   setTimeout(() => {
+//     holes[index] = 0;
+//     event.target.classList.remove("dead");
+//   }, 1000);
+// });
 
 //   cell.querySelector(".bomb").addEventListener("click", (event) => {
 //     score -= 20;
