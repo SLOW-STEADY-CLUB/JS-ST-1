@@ -2,7 +2,7 @@ const timer = document.querySelector("#timer");
 const scores = document.querySelector("#score");
 const game = document.querySelector("#game");
 const start = document.querySelector("#start");
-//const cells = document.querySelectorAll(".cell");
+const cells = document.querySelectorAll(".cell");
 
 const holes = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let started = false;
@@ -47,6 +47,9 @@ function tick() {
     const randomValue = Math.random();
     if (Math.random() < gopherPercent) {
       const gopher = cells[index].querySelector(".gopher");
+      if (gopher.classList[1] === "dead") {
+        gopher.classList.remove("dead");
+      }
       holes[index] = setTimeout(() => {
         gopher.classList.add("hidden");
         holes[index] = 0;
@@ -63,14 +66,15 @@ function tick() {
   });
 }
 game.addEventListener("click", (event) => {
+  console.log(event.target.classList);
   if (event.target.classList[0] === "gopher") {
     score += 10;
     scores.textContent = score;
     event.target.classList.add("dead");
     event.target.classList.add("hidden");
-    clearTimeout(holes[index]);
+    //clearTimeout(holes[index]);
     setTimeout(() => {
-      holes[index] = 0;
+      //holes[index] = 0;
       event.target.classList.remove("dead");
     }, 1000);
   }
@@ -79,9 +83,9 @@ game.addEventListener("click", (event) => {
     scores.textContent = score;
     event.target.classList.add("boom");
     event.target.classList.add("hidden");
-    clearTimeout(holes[index]);
+    //clearTimeout(holes[index]);
     setTimeout(() => {
-      holes[index] = 0;
+      //holes[index] = 0;
       event.target.classList.remove("boom");
     }, 1000);
   }
